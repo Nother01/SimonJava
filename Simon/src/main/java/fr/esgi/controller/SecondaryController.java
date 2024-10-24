@@ -1,4 +1,4 @@
-package fr.esgi;
+package fr.esgi.controller;
 
 import java.io.IOException;
 import javafx.fxml.FXML;
