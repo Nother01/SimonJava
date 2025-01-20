@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="fr.esgi.controller.ConfigurationControleur">
+    <top>
+        <Label text="Configuration du Jeu" BorderPane.alignment="CENTER" style="-fx-font-size: 18px;" />
+    </top>
+    <center>
+        <VBox alignment="CENTER" spacing="15">
+            <HBox spacing="10">
+                <Label text="Couleur Rouge :" />
+                <TextField fx:id="couleurRouge" promptText="Chemin du son Rouge" />
+            </HBox>
+            <HBox spacing="10">
+                <Label text="Couleur Verte :" />
+                <TextField fx:id="couleurVerte" promptText="Chemin du son Vert" />
+            </HBox>
+            <HBox spacing="10">
+                <Label text="Couleur Bleue :" />
+                <TextField fx:id="couleurBleue" promptText="Chemin du son Bleu" />
+            </HBox>
+            <HBox spacing="10">
+                <Label text="Couleur Jaune :" />
+                <TextField fx:id="couleurJaune" promptText="Chemin du son Jaune" />
+            </HBox>
+            <Button text="Sauvegarder Configuration" onAction="#configurerJeu" />
+        </VBox>
+    </center>
+</BorderPane>

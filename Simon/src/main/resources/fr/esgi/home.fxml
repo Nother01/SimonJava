@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="fr.esgi.controller.AccueilControleur">
+    <top>
+        <Label text="Bienvenue dans le jeu Simon !" BorderPane.alignment="CENTER" />
+    </top>
+    <center>
+        <VBox alignment="CENTER" spacing="10">
+            <Button text="Mode Solo" onAction="#afficherEcranAccueil" />
+            <Button text="Mode Multijoueur" onAction="#afficherEcranAccueil" />
+            <Button text="Quitter" onAction="#afficherEcranAccueil" />
+        </VBox>
+    </center>
+</BorderPane>

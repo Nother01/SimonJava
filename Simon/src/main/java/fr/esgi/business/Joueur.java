@@ -1,20 +1,26 @@
 package fr.esgi.business;
 
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-import java.util.List;
-
-
+// Classe Player
 @Data
 @NoArgsConstructor
 public class Joueur {
 
-    private Long id;
-    private String prenom;
+    private String name;
     private int score;
-    private Boolean estActif;
-    private List<Mouvement> mouvements;
-    private static Long idCompteur = 0L;
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+    public void adjustScore(int scoreChange) {
+        this.score += scoreChange;
+    }
 }

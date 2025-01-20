@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="fr.esgi.controller.JoueurControleur">
+    <top>
+        <Label text="Saisie des joueurs" BorderPane.alignment="CENTER" style="-fx-font-size: 18px;" />
+    </top>
+    <center>
+        <VBox alignment="CENTER" spacing="10">
+            <TextField fx:id="inputNomJoueur" promptText="Entrez le nom du joueur" />
+            <Button text="Ajouter Joueur" onAction="#ajouterJoueur" />
+            <ListView fx:id="listeJoueurs" prefHeight="150" />
+        </VBox>
+    </center>
+    <bottom>
+        <Button text="Commencer la Partie" onAction="#afficherJoueurActuel" BorderPane.alignment="CENTER" />
+    </bottom>
+</BorderPane>

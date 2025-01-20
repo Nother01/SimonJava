@@ -1,16 +1,30 @@
 package fr.esgi.business;
 
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 @Data
-@NoArgsConstructor
 public class Partie {
+    private List<Joueur> players;
+    private List<String> sequence;
+    private int currentRound;
+    private Joueur currentPlayer;
 
-    private List<Joueur> joueurs;
-    private List<String> sequenceCouleurs;
-    private int nivauActuel;
-    private boolean partieTerminee;
+    public void addToSequence(String color) {
+        this.sequence.add(color);
+    }
+
+    public void nextRound() {
+        this.currentRound++;
+    }
+
+    public Joueur getJoueurActuel() {
+        return currentPlayer;
+    }
+
+    public void nextPlayer() {
+        int currentIndex = players.indexOf(currentPlayer);
+        currentPlayer = players.get((currentIndex + 1) % players.size());
+    }
 }

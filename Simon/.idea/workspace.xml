@@ -4,22 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1ba2ba5d-34d9-4769-a388-4f01769a5545" name="Changes" comment="ADD initialisation du projet">
-      <change afterPath="$PROJECT_DIR$/src/main/java/fr/esgi/business/Config.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/fr/esgi/business/Joueur.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/fr/esgi/business/Mouvement.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/fr/esgi/business/Musique.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/fr/esgi/business/Partie.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/fr/esgi/service/JoueurService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/fr/esgi/service/impl/JoueurServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/esgi/PrimaryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/esgi/controller/PrimaryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/esgi/SecondaryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/esgi/controller/SecondaryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fr/esgi/primary.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fr/esgi/primary.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fr/esgi/secondary.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fr/esgi/secondary.fxml" afterDir="false" />
-    </list>
+    <list default="true" id="1ba2ba5d-34d9-4769-a388-4f01769a5545" name="Changes" comment="ADD initialisation du projet" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -51,11 +36,13 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
+    "Maven.simon [clean,install].executor": "Run",
     "Maven.simon [clean].executor": "Run",
     "Maven.simon [install].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/romai/Documents/ESGI/Java/SimonJava/Simon",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -82,6 +69,7 @@
       <updated>1729600295087</updated>
       <workItem from="1729600295985" duration="3366000" />
       <workItem from="1729685839595" duration="6562000" />
+      <workItem from="1733844047811" duration="381000" />
     </task>
     <task id="LOCAL-00001" summary="ADD initialisation du projet">
       <option name="closed" value="true" />

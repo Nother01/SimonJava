@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="fr.esgi.controller.CreditsControleur">
+    <top>
+        <Label text="Crédits" BorderPane.alignment="CENTER" style="-fx-font-size: 18px;" />
+    </top>
+    <center>
+        <VBox alignment="CENTER" spacing="10">
+            <Label text="Développé par :" style="-fx-font-size: 14px;" />
+            <ListView fx:id="listeCredits" prefHeight="150" />
+        </VBox>
+    </center>
+    <bottom>
+        <Button text="Retour à l'Accueil" onAction="#afficherCredits" BorderPane.alignment="CENTER" />
+    </bottom>
+</BorderPane>
