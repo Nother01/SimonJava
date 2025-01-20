@@ -1,31 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="fr.esgi.controller.ConfigurationControleur">
-    <top>
-        <Label text="Configuration du Jeu" BorderPane.alignment="CENTER" style="-fx-font-size: 18px;" />
-    </top>
-    <center>
-        <VBox alignment="CENTER" spacing="15">
-            <HBox spacing="10">
-                <Label text="Couleur Rouge :" />
-                <TextField fx:id="couleurRouge" promptText="Chemin du son Rouge" />
-            </HBox>
-            <HBox spacing="10">
-                <Label text="Couleur Verte :" />
-                <TextField fx:id="couleurVerte" promptText="Chemin du son Vert" />
-            </HBox>
-            <HBox spacing="10">
-                <Label text="Couleur Bleue :" />
-                <TextField fx:id="couleurBleue" promptText="Chemin du son Bleu" />
-            </HBox>
-            <HBox spacing="10">
-                <Label text="Couleur Jaune :" />
-                <TextField fx:id="couleurJaune" promptText="Chemin du son Jaune" />
-            </HBox>
-            <Button text="Sauvegarder Configuration" onAction="#configurerJeu" />
-        </VBox>
-    </center>
-</BorderPane>
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="fr.esgi.controller.ConfigurationControleur" prefWidth="800" prefHeight="600">
+    <Button fx:id="backButton" text="Back" onAction="#onBackButtonClick" layoutX="50" layoutY="50" />
+    <ChoiceBox fx:id="player1SoundChoice" layoutX="50" layoutY="100" />
+    <ChoiceBox fx:id="player2SoundChoice" layoutX="50" layoutY="150" />
+    <Button fx:id="saveButton" text="Save" onAction="#onSaveButtonClick" layoutX="50" layoutY="200" />
+</AnchorPane>
