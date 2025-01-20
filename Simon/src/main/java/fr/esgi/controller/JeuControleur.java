@@ -25,4 +25,10 @@ public class JeuControleur {
             System.err.println("Erreur lors du chargement de l'écran d'accueil : " + e.getMessage());
         }
     }
+
+    @FXML
+    public void jouerTour() {
+        System.out.println("Jouer tour.");
+        // Your code for jouerTour
+    }
 }

@@ -52,7 +52,7 @@ public class ConfigurationControleur {
 
         // Load the game scene
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/fr/esgi/games.fxml")); // Ensure the path is correct
+            Parent root = FXMLLoader.load(getClass().getResource("/fr/esgi/game.fxml")); // Ensure the path is correct
             Stage stage = (Stage) saveButton.getScene().getWindow();
             stage.setScene(new Scene(root, 800, 600)); // Taille ajustée pour correspondre aux autres pages
         } catch (IOException e) {
