@@ -12,20 +12,26 @@ import java.io.IOException;
 public class AccueilControleur {
 
     @FXML
-    private Button startButton;
+    private Button soloGameButton;
 
     @FXML
     private Button quitButton;
 
     @FXML
-    public void onStartButtonClick() {
+    public void onsoloGameButtonClick() {
         System.out.println("Démarrage du jeu depuis l'écran d'accueil.");
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/fr/esgi/config.fxml"));
-            Stage stage = (Stage) startButton.getScene().getWindow();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fr/esgi/players_name.fxml"));
+            Parent root = loader.load();
+
+            JoueurNomsControleur controller = loader.getController();
+            controller.setNumberOfPlayers(1);
+            controller.createPlayerNameFields();
+
+            Stage stage = (Stage) soloGameButton.getScene().getWindow();
             stage.setScene(new Scene(root));
         } catch (IOException e) {
-            System.err.println("Erreur lors du chargement de la scène de configuration : " + e.getMessage());
+            System.err.println("Erreur lors du chargement de la scène de choix du nom des joueurs : " + e.getMessage());
         }
     }
 
@@ -38,6 +44,5 @@ public class AccueilControleur {
     @FXML
     public void afficherEcranAccueil() {
         System.out.println("Affichage de l'écran d'accueil.");
-        // Ajoutez ici le code pour afficher l'écran d'accueil
     }
 }

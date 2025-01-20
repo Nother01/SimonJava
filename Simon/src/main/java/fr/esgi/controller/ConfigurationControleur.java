@@ -5,8 +5,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import lombok.Setter;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ConfigurationControleur {
 
@@ -15,6 +18,9 @@ public class ConfigurationControleur {
 
     @FXML
     private Label lblSound1, lblSound2, lblSound3, lblSound4;
+
+    @Setter
+    private List<String> playerNames = new ArrayList<>();
 
     private final String[] soundPaths = new String[4];
 
@@ -42,9 +48,12 @@ public class ConfigurationControleur {
             soundPaths[buttonIndex] = selectedFile.getAbsolutePath();
             label.setText(selectedFile.getName());
         }
+
+        playerNames.forEach(System.out::println);
     }
 
     public String[] getSoundPaths() {
         return soundPaths;
     }
+
 }
