@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1ba2ba5d-34d9-4769-a388-4f01769a5545" name="Changes" comment="ADD initialisation du projet" />
+    <list default="true" id="1ba2ba5d-34d9-4769-a388-4f01769a5545" name="Changes" comment="ADD initialisation du projet">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/esgi/controller/ConfigurationControleur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/esgi/controller/ConfigurationControleur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fr/esgi/config.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fr/esgi/config.fxml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -35,6 +39,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.App.executor": "Run",
     "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
     "Maven.simon [clean,install].executor": "Run",
     "Maven.simon [clean].executor": "Run",
