@@ -84,7 +84,7 @@ public class ConfigurationControleur {
 
     private void handleNext() {
         try {
-            Stage primaryStage = new Stage();
+            Stage primaryStage = (Stage) btnSave.getScene().getWindow();
             GameControleur GameControleur = new GameControleur(joueurs, primaryStage);
             GameControleur.setSoundPaths(soundPaths);
             GameControleur.startGame();

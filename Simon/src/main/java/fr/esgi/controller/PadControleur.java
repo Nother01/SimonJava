@@ -65,11 +65,11 @@ public class PadControleur {
         userSequence.clear();
         isUserTurn = false;
         btnVerify.setDisable(true);
-        gameMessage.setText("Mémorisez...");
+        gameMessage.setText("Attention " + joueur.getName() + "...");
 
         generateSequence();
         playSequence(() -> {
-            gameMessage.setText("À vous de jouer, " + joueur.getName() + "...");
+            gameMessage.setText("À toi de jouer " + joueur.getName() + "...");
             isUserTurn = true;
             btnVerify.setDisable(false);
             onSequenceComplete.run();

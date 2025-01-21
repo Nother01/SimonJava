@@ -59,7 +59,6 @@ public class GameControleur {
             PadControleur padControleur = loader.getController();
             padControleur.setJoueur(currentPlayer);
 
-            // int numberOfFlashes = currentPlayer.getSequence().size() + SEQUENCE_INCREMENT;
             padControleur.setNumberOfFlashes(SEQUENCE_INCREMENT);
             padControleur.setSoundPaths(soundPaths);
 

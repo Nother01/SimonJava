@@ -6,8 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="1ba2ba5d-34d9-4769-a388-4f01769a5545" name="Changes" comment="ADD initialisation du projet">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/esgi/controller/AccueilControleur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/esgi/controller/AccueilControleur.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/esgi/controller/ConfigurationControleur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/esgi/controller/ConfigurationControleur.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/esgi/controller/GameControleur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/esgi/controller/GameControleur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/esgi/controller/JoueurNomsControleur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/esgi/controller/JoueurNomsControleur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/esgi/controller/PadControleur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/esgi/controller/PadControleur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fr/esgi/home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fr/esgi/home.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

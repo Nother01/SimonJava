@@ -76,7 +76,7 @@ public class JoueurNomsControleur {
             stage.setScene(new Scene(loader.load()));
 
             ConfigurationControleur configController = loader.getController();
-            configController.setJoueurs(joueurs); // Passe la liste des joueurs
+            configController.setJoueurs(joueurs);
         } catch (IOException e) {
             System.err.println("Erreur : " + e.getMessage());
         }
