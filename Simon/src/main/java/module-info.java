@@ -3,6 +3,7 @@ module fr.esgi {
     requires javafx.fxml;
     requires static lombok;
     requires java.desktop;
+    requires jlayer;
 
     opens fr.esgi to javafx.fxml;
     exports fr.esgi;

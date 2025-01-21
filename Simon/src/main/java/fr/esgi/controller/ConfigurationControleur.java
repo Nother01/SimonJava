@@ -53,6 +53,8 @@ public class ConfigurationControleur {
     private void selectSound(int buttonIndex, Label label) {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Select Sound File");
+        String defaultDirectory = "src/main/resources/fr/esgi/audio";
+        fileChooser.setInitialDirectory(new File(defaultDirectory));
         fileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("Audio Files", "*.mp3")
         );
