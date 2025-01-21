@@ -14,7 +14,6 @@ import lombok.Setter;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -85,7 +84,7 @@ public class ConfigurationControleur {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fr/esgi/pad.fxml"));
             Parent root = loader.load();
 
-            PadController controller = loader.getController();
+            PadControleur controller = loader.getController();
 
             controller.setJoueurs(joueurs);
             controller.setSoundPaths(soundPaths);
