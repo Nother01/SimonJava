@@ -22,7 +22,7 @@ public class GestionPartieImplTest {
 
     @Test
     public void testDemarrerPartie() {
-        gestionPartie.ajouterJoueur(new Joueur());
+        gestionPartie.ajouterJoueur(new Joueur("Alice", 3));
         gestionPartie.demarrerPartie();
 
         assertEquals(1, gestionPartie.getSequence().size(), "La séquence doit contenir une couleur après le démarrage.");
@@ -57,7 +57,7 @@ public class GestionPartieImplTest {
 
     @Test
     public void testAjouterJoueur() {
-        Joueur joueur = new Joueur();
+        Joueur joueur = new Joueur("Alice",0);
         gestionPartie.ajouterJoueur(joueur);
 
         assertEquals(1, gestionPartie.getJoueurs().size(), "Un joueur doit être ajouté.");
@@ -70,7 +70,7 @@ public class GestionPartieImplTest {
 
     @Test
     public void testGetJoueurActuelAvecUnJoueur() {
-        Joueur joueur = new Joueur();
+        Joueur joueur = new Joueur("Alice",0);
         joueur.setName("Alice");
         gestionPartie.ajouterJoueur(joueur);
 
@@ -79,10 +79,8 @@ public class GestionPartieImplTest {
 
     @Test
     public void testPasserAuJoueurSuivant() {
-        Joueur joueur1 = new Joueur();
-        joueur1.setName("Alice");
-        Joueur joueur2 = new Joueur();
-        joueur2.setName("Bob");
+        Joueur joueur1 = new Joueur("Alice",3);
+        Joueur joueur2 = new Joueur("Bob",1);
 
         gestionPartie.ajouterJoueur(joueur1);
         gestionPartie.ajouterJoueur(joueur2);

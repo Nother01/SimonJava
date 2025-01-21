@@ -9,66 +9,67 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class GestionJoueurImplTest {
+class GestionJoueurImplTest {
 
     private GestionJoueurImpl gestionJoueur;
 
     @BeforeEach
-    public void setUp() {
+    void setUp() {
         gestionJoueur = new GestionJoueurImpl();
     }
 
     @Test
-    public void testAjouterJoueur() {
-        gestionJoueur.ajouterJoueur("Alice");
+    void testAjouterJoueur() {
+        gestionJoueur.ajouterJoueur("Player1");
         List<Joueur> joueurs = gestionJoueur.getTousLesJoueurs();
 
-        assertEquals(1, joueurs.size(), "La liste doit contenir un joueur.");
-        assertEquals("Alice", joueurs.get(0).getName(), "Le nom du joueur doit être Alice.");
+        assertEquals(1, joueurs.size());
+        assertEquals("Player1", joueurs.get(0).getName());
+        assertEquals(0, joueurs.get(0).getScore());
     }
 
     @Test
-    public void testObtenirJoueurActuelAvecAucunJoueur() {
-        Joueur joueurActuel = gestionJoueur.obtenirJoueurActuel();
-        assertNull(joueurActuel, "Lorsque la liste est vide, le joueur actuel doit être null.");
-    }
+    void testObtenirJoueurActuel() {
+        assertNull(gestionJoueur.obtenirJoueurActuel());
 
-    @Test
-    public void testObtenirJoueurActuelAvecUnJoueur() {
-        gestionJoueur.ajouterJoueur("Alice");
+        gestionJoueur.ajouterJoueur("Player1");
         Joueur joueurActuel = gestionJoueur.obtenirJoueurActuel();
 
-        assertNotNull(joueurActuel, "Le joueur actuel ne doit pas être null.");
-        assertEquals("Alice", joueurActuel.getName(), "Le nom du joueur actuel doit être Alice.");
+        assertNotNull(joueurActuel);
+        assertEquals("Player1", joueurActuel.getName());
     }
 
     @Test
-    public void testPasserAuJoueurSuivant() {
-        gestionJoueur.ajouterJoueur("Alice");
-        gestionJoueur.ajouterJoueur("Bob");
-
-        Joueur joueurActuel = gestionJoueur.obtenirJoueurActuel();
-        assertEquals("Alice", joueurActuel.getName(), "Le premier joueur doit être Alice.");
-
-        gestionJoueur.passerAuJoueurSuivant();
-        joueurActuel = gestionJoueur.obtenirJoueurActuel();
-        assertEquals("Bob", joueurActuel.getName(), "Le joueur suivant doit être Bob.");
-
-        gestionJoueur.passerAuJoueurSuivant();
-        joueurActuel = gestionJoueur.obtenirJoueurActuel();
-        assertEquals("Alice", joueurActuel.getName(), "Après Bob, le joueur doit être Alice.");
-    }
-
-    @Test
-    public void testGetTousLesJoueurs() {
-        gestionJoueur.ajouterJoueur("Alice");
-        gestionJoueur.ajouterJoueur("Bob");
+    void testGetTousLesJoueurs() {
+        gestionJoueur.ajouterJoueur("Player1");
+        gestionJoueur.ajouterJoueur("Player2");
 
         List<Joueur> joueurs = gestionJoueur.getTousLesJoueurs();
 
-        assertEquals(2, joueurs.size(), "La liste doit contenir deux joueurs.");
-        assertEquals("Alice", joueurs.get(0).getName(), "Le premier joueur doit être Alice.");
-        assertEquals("Bob", joueurs.get(1).getName(), "Le deuxième joueur doit être Bob.");
+        assertEquals(2, joueurs.size());
+        assertEquals("Player1", joueurs.get(0).getName());
+        assertEquals("Player2", joueurs.get(1).getName());
+    }
+
+    @Test
+    void testPasserAuJoueurSuivant() {
+        gestionJoueur.ajouterJoueur("Player1");
+        gestionJoueur.ajouterJoueur("Player2");
+        gestionJoueur.ajouterJoueur("Player3");
+
+        Joueur joueurActuel = gestionJoueur.obtenirJoueurActuel();
+        assertEquals("Player1", joueurActuel.getName());
+
+        gestionJoueur.passerAuJoueurSuivant();
+        joueurActuel = gestionJoueur.obtenirJoueurActuel();
+        assertEquals("Player2", joueurActuel.getName());
+
+        gestionJoueur.passerAuJoueurSuivant();
+        joueurActuel = gestionJoueur.obtenirJoueurActuel();
+        assertEquals("Player3", joueurActuel.getName());
+
+        gestionJoueur.passerAuJoueurSuivant();
+        joueurActuel = gestionJoueur.obtenirJoueurActuel();
+        assertEquals("Player1", joueurActuel.getName());
     }
 }
-
