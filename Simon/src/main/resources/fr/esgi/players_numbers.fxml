@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="fr.esgi.controller.NombreJoueurControleur" spacing="20" alignment="center" prefWidth="800" prefHeight="600">
+    <CheckBox fx:id="checkBox2Players" text="2 Joueurs"/>
+    <CheckBox fx:id="checkBox3Players" text="3 Joueurs"/>
+    <CheckBox fx:id="checkBox4Players" text="4 Joueurs"/>
+    <Button fx:id="nextButton" text="Suivant"/>
+</VBox>

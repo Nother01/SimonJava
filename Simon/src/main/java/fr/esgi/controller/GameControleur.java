@@ -12,12 +12,14 @@ import lombok.Setter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class GameControleur {
     private List<Joueur> joueurs;
     private int currentPlayerIndex;
     private int currentRound;
     private static final int SEQUENCE_INCREMENT = 4;
+    private static final int SEQUENCE_TARGET = 16;
 
     @Setter
     private String[] soundPaths = new String[4];
@@ -41,7 +43,7 @@ public class GameControleur {
     }
 
     private void playNextTurn() {
-        if (getActivePlayersCount() <= 1) {
+        if (getActivePlayersCount() <= 1 || isAnyPlayerReachedTargetSequence()) {
             endGame();
             return;
         }
@@ -81,6 +83,11 @@ public class GameControleur {
         if (!isCorrect) {
             currentPlayer.setActive(false);
             System.out.println(currentPlayer.getName() + " a été éliminé!");
+        } else {
+            if (sequence.size() >= SEQUENCE_TARGET) {
+                currentPlayer.setActive(false);
+                System.out.println(currentPlayer.getName() + " a gagné avec une séquence de taille " + SEQUENCE_TARGET);
+            }
         }
 
         moveToNextPlayer();
@@ -94,11 +101,23 @@ public class GameControleur {
     }
 
     private void moveToNextPlayer() {
-        currentPlayerIndex = (currentPlayerIndex + 1) % joueurs.size();
+        List<Joueur> activePlayers = joueurs.stream()
+                .filter(Joueur::isActive)
+                .collect(Collectors.toList());
+
+        if (!activePlayers.isEmpty()) {
+            currentPlayerIndex = (currentPlayerIndex + 1) % activePlayers.size();
+            currentPlayerIndex = joueurs.indexOf(activePlayers.get(currentPlayerIndex));
+        }
     }
 
     private int getActivePlayersCount() {
         return (int) joueurs.stream().filter(Joueur::isActive).count();
+    }
+
+    private boolean isAnyPlayerReachedTargetSequence() {
+        return joueurs.stream()
+                .anyMatch(player -> player.getSequenceSize() >= SEQUENCE_TARGET);
     }
 
     private void endGame() {
@@ -111,7 +130,16 @@ public class GameControleur {
             System.out.println("Le gagnant est : " + winner.getName() +
                     " avec un score de " + winner.getScore());
         } else {
-            System.out.println("Aucun gagnant");
+            winner = joueurs.stream()
+                    .max((j1, j2) -> Integer.compare(j1.getScore(), j2.getScore()))
+                    .orElse(null);
+
+            if (winner != null) {
+                System.out.println("Tous les joueurs sont morts ! Le gagnant est : " + winner.getName() +
+                        " avec un score de " + winner.getScore());
+            } else {
+                System.out.println("Aucun gagnant");
+            }
         }
     }
 }

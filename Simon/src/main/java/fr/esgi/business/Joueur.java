@@ -14,6 +14,7 @@ public class Joueur {
     private boolean active;
 
     private String name;
+    @Getter
     private int score;
 
     private List<Integer> sequence;
@@ -31,5 +32,9 @@ public class Joueur {
 
     public void addSequence(List<Integer> newSequence) {
         this.sequence.addAll(newSequence);
+    }
+
+    public int getSequenceSize() {
+        return sequence.size();
     }
 }

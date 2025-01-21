@@ -15,6 +15,7 @@ import java.io.IOException;
  */
 public class AccueilControleur {
 
+    public Button multiGameButton;
     @FXML
     private Button soloGameButton;
 
@@ -51,14 +52,12 @@ public class AccueilControleur {
     public void onmultiGameButtonClick() {
         System.out.println("Démarrage du jeu multi");
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fr/esgi/players_name.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fr/esgi/players_numbers.fxml"));
             Parent root = loader.load();
 
-            JoueurNomsControleur controller = loader.getController();
-            controller.setNumberOfPlayers(2);
-            controller.createPlayerNameFields();
+            NombreJoueurControleur controller = loader.getController();
 
-            Stage stage = (Stage) soloGameButton.getScene().getWindow();
+            Stage stage = (Stage) multiGameButton.getScene().getWindow();
             stage.setScene(new Scene(root));
         } catch (IOException e) {
             System.err.println("Erreur lors du chargement de la scène de choix du nom des joueurs : " + e.getMessage());
