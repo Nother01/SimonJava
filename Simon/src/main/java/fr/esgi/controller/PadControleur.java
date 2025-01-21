@@ -13,13 +13,14 @@ import lombok.Setter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.function.BiConsumer;
 
 public class PadControleur {
     @FXML
     private Rectangle rectRed, rectBlue, rectGreen, rectYellow;
 
     @Setter
-    private List<Joueur> joueurs;
+    private Joueur joueur;
 
     @Setter
     private String[] soundPaths = new String[4];
@@ -32,13 +33,12 @@ public class PadControleur {
 
     @FXML
     private Label gameMessage;
+
     @FXML
     private Button btnVerify;
 
     private List<Integer> userSequence = new ArrayList<>();
     private boolean isUserTurn = false;
-
-    private int currentPlayerIndex = 0;
 
     @FXML
     public void initialize() {
@@ -50,9 +50,15 @@ public class PadControleur {
         btnVerify.setOnAction(event -> verifySequence());
     }
 
-    public void startGame() {
-        if (joueurs == null || joueurs.isEmpty()) {
-            gameMessage.setText("Aucun joueur n'est disponible.");
+    private BiConsumer<Boolean, List<Integer>> onSequenceVerified;
+
+    public void setOnSequenceVerified(BiConsumer<Boolean, List<Integer>> callback) {
+        this.onSequenceVerified = callback;
+    }
+
+    public void startGame(Runnable onSequenceComplete) {
+        if (joueur == null) {
+            gameMessage.setText("Aucun joueur n'est défini.");
             return;
         }
 
@@ -63,9 +69,10 @@ public class PadControleur {
 
         generateSequence();
         playSequence(() -> {
-            gameMessage.setText("À vous de jouer, " + joueurs.get(currentPlayerIndex).getName() + "...");
+            gameMessage.setText("À vous de jouer, " + joueur.getName() + "...");
             isUserTurn = true;
             btnVerify.setDisable(false);
+            onSequenceComplete.run();
         });
     }
 
@@ -74,7 +81,9 @@ public class PadControleur {
         for (int i = 0; i < numberOfFlashes; i++) {
             sequence.add(random.nextInt(4)); // 0: Red, 1: Blue, 2: Green, 3: Yellow
         }
-        System.out.println("Sequence generated: " + sequence);
+        joueur.addSequence(sequence);
+        sequence = joueur.getSequence();
+        System.out.println("Sequence: " + sequence);
     }
 
     private void playSequence(Runnable onSequenceComplete) {
@@ -136,20 +145,20 @@ public class PadControleur {
 
     @FXML
     private void verifySequence() {
-        Joueur currentPlayer = joueurs.get(currentPlayerIndex);
-        if (sequence.equals(userSequence)) {
+        boolean isCorrect = sequence.equals(userSequence);
+        if (isCorrect) {
             gameMessage.setText("Bravo ! Séquence correcte.");
-            currentPlayer.adjustScore(2);
+            joueur.adjustScore(2);
         } else {
             gameMessage.setText("Erreur ! Essayez encore.");
-            currentPlayer.adjustScore(-2);
+            joueur.adjustScore(-2);
         }
+
         btnVerify.setDisable(true);
         isUserTurn = false;
 
-        // Passer au joueur suivant
-        currentPlayerIndex = (currentPlayerIndex + 1) % joueurs.size();
-        System.out.println("Joueur actuel: " + currentPlayer.getName());
-        System.out.println("score total player: " + currentPlayer.getScore());
+        if (onSequenceVerified != null) {
+            onSequenceVerified.accept(isCorrect, new ArrayList<>(sequence));
+        }
     }
 }

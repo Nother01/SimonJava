@@ -1,21 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
 
-<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="fr.esgi.controller.JeuControleur">
-    <top>
-        <Label text="Joueur Actuel : " fx:id="labelJoueurActuel" BorderPane.alignment="CENTER" />
-    </top>
-    <center>
-        <GridPane alignment="CENTER" hgap="20" vgap="20">
-            <Button text="Rouge" style="-fx-background-color: red;" GridPane.rowIndex="0" GridPane.columnIndex="0" onAction="#jouerTour" />
-            <Button text="Vert" style="-fx-background-color: green;" GridPane.rowIndex="0" GridPane.columnIndex="1" onAction="#jouerTour" />
-            <Button text="Bleu" style="-fx-background-color: blue;" GridPane.rowIndex="1" GridPane.columnIndex="0" onAction="#jouerTour" />
-            <Button text="Jaune" style="-fx-background-color: yellow;" GridPane.rowIndex="1" GridPane.columnIndex="1" onAction="#jouerTour" />
-        </GridPane>
-    </center>
-    <bottom>
-        <Label text="Tour actuel : " fx:id="labelTourActuel" BorderPane.alignment="CENTER" />
-    </bottom>
-</BorderPane>
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="fr.esgi.controller.GameControleur" prefWidth="800" prefHeight="600">
+    <Label fx:id="currentPlayerLabel" text="Joueur actuel: " />
+    <Label fx:id="turnCountLabel" text="Tour: 1" />
+    <Button fx:id="btnNextTurn" text="Passer au tour suivant" onAction="#handleNextTurn" />
+</VBox>

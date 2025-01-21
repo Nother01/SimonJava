@@ -61,7 +61,7 @@ public class ConfigurationControleur {
     private void selectSound(int buttonIndex, Label label) {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Select Sound File");
-        String defaultDirectory = "src/main/resources/fr/esgi/audio";
+        String defaultDirectory = "src/main/resources/fr/esgi/audio/";
         fileChooser.setInitialDirectory(new File(defaultDirectory));
         fileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("Audio Files", "*.mp3")
@@ -76,26 +76,15 @@ public class ConfigurationControleur {
         }
     }
 
-    /**
-     * Gère l'action de sauvegarde et charge la scène suivante.
-     */
+
     private void handleNext() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fr/esgi/pad.fxml"));
-            Parent root = loader.load();
-
-            PadControleur controller = loader.getController();
-
-            controller.setJoueurs(joueurs);
-            controller.setSoundPaths(soundPaths);
-            controller.setNumberOfFlashes(4);
-
-            controller.startGame();
-
-            Stage stage = (Stage) btnSave.getScene().getWindow();
-            stage.setScene(new Scene(root));
-        } catch (IOException e) {
-            System.err.println("Erreur lors du chargement de la scène suivante : " + e.getMessage());
+            Stage primaryStage = new Stage();
+            GameControleur GameControleur = new GameControleur(joueurs, primaryStage);
+            GameControleur.startGame();
+        } catch (Exception e) {
+            System.err.println("Erreur lors du lancement du jeu : " + e.getMessage());
+            e.printStackTrace();
         }
     }
 }

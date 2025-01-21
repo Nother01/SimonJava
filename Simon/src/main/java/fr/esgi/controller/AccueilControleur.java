@@ -33,7 +33,7 @@ public class AccueilControleur {
             Parent root = loader.load();
 
             JoueurNomsControleur controller = loader.getController();
-            controller.setNumberOfPlayers(1);
+            controller.setNumberOfPlayers(2);
             controller.createPlayerNameFields();
 
             Stage stage = (Stage) soloGameButton.getScene().getWindow();
