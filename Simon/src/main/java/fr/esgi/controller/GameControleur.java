@@ -101,13 +101,10 @@ public class GameControleur {
     }
 
     private void moveToNextPlayer() {
-        List<Joueur> activePlayers = joueurs.stream()
-                .filter(Joueur::isActive)
-                .collect(Collectors.toList());
+        currentPlayerIndex = (currentPlayerIndex + 1) % joueurs.size();
 
-        if (!activePlayers.isEmpty()) {
-            currentPlayerIndex = (currentPlayerIndex + 1) % activePlayers.size();
-            currentPlayerIndex = joueurs.indexOf(activePlayers.get(currentPlayerIndex));
+        while (!joueurs.get(currentPlayerIndex).isActive() && getActivePlayersCount() > 1) {
+            currentPlayerIndex = (currentPlayerIndex + 1) % joueurs.size();
         }
     }
 
