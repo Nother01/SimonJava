@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 public class Joueur {
 
     private String name;
-    private int score;
+    private Integer score;
 
     public void adjustScore(int scoreChange) {
         this.score += scoreChange;
