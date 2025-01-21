@@ -71,8 +71,13 @@ public class ConfigurationControleur {
         File selectedFile = fileChooser.showOpenDialog(stage);
 
         if (selectedFile != null) {
+            System.out.println("Selected file: " + selectedFile.getAbsolutePath());
+
             soundPaths[buttonIndex] = selectedFile.getAbsolutePath();
+
             label.setText(selectedFile.getName());
+        } else {
+            System.out.println("No file selected.");
         }
     }
 
@@ -81,6 +86,7 @@ public class ConfigurationControleur {
         try {
             Stage primaryStage = new Stage();
             GameControleur GameControleur = new GameControleur(joueurs, primaryStage);
+            GameControleur.setSoundPaths(soundPaths);
             GameControleur.startGame();
         } catch (Exception e) {
             System.err.println("Erreur lors du lancement du jeu : " + e.getMessage());

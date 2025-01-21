@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -17,6 +18,9 @@ public class GameControleur {
     private int currentPlayerIndex;
     private int currentRound;
     private static final int SEQUENCE_INCREMENT = 4;
+
+    @Setter
+    private String[] soundPaths = new String[4];
 
     @Getter
     private Stage stage;
@@ -57,6 +61,7 @@ public class GameControleur {
 
             // int numberOfFlashes = currentPlayer.getSequence().size() + SEQUENCE_INCREMENT;
             padControleur.setNumberOfFlashes(SEQUENCE_INCREMENT);
+            padControleur.setSoundPaths(soundPaths);
 
             padControleur.startGame(() -> {
                 padControleur.setOnSequenceVerified(this::handleSequenceVerification);
