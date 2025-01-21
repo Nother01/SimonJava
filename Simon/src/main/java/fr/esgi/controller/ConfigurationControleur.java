@@ -15,6 +15,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Classe contrôleur pour la configuration des sons du jeu.
+ */
 public class ConfigurationControleur {
 
     @FXML
@@ -26,9 +29,11 @@ public class ConfigurationControleur {
     @Setter
     private List<String> playerNames = new ArrayList<>();
 
-
     private final String[] soundPaths = new String[4];
 
+    /**
+     * Initialise les gestionnaires d'événements pour les boutons de sélection de sons et de sauvegarde.
+     */
     @FXML
     public void initialize() {
         btnSound1.setOnAction(event -> selectSound(0, lblSound1));
@@ -39,6 +44,12 @@ public class ConfigurationControleur {
         btnSave.setOnAction(event -> handleNext());
     }
 
+    /**
+     * Ouvre un sélecteur de fichiers pour choisir un fichier audio et met à jour le label correspondant.
+     *
+     * @param buttonIndex L'index du bouton de sélection de son.
+     * @param label Le label à mettre à jour avec le nom du fichier sélectionné.
+     */
     private void selectSound(int buttonIndex, Label label) {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Select Sound File");
@@ -55,13 +66,20 @@ public class ConfigurationControleur {
             soundPaths[buttonIndex] = selectedFile.getAbsolutePath();
             label.setText(selectedFile.getName());
         }
-
     }
 
+    /**
+     * Retourne les chemins des fichiers audio sélectionnés.
+     *
+     * @return Un tableau de chaînes contenant les chemins des fichiers audio.
+     */
     public String[] getSoundPaths() {
         return soundPaths;
     }
 
+    /**
+     * Gère l'action de sauvegarde et charge la scène suivante.
+     */
     private void handleNext() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fr/esgi/pad.fxml"));

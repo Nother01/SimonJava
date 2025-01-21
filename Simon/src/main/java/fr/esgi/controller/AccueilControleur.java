@@ -9,6 +9,9 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * Classe contrôleur pour l'écran d'accueil.
+ */
 public class AccueilControleur {
 
     @FXML
@@ -17,6 +20,10 @@ public class AccueilControleur {
     @FXML
     private Button quitButton;
 
+    /**
+     * Gère l'action lorsque le bouton de jeu solo est cliqué.
+     * Charge l'écran de choix du nom des joueurs pour le mode solo.
+     */
     @FXML
     public void onsoloGameButtonClick() {
         System.out.println("Démarrage du jeu depuis l'écran d'accueil.");
@@ -35,12 +42,19 @@ public class AccueilControleur {
         }
     }
 
+    /**
+     * Gère l'action lorsque le bouton quitter est cliqué.
+     * Quitte l'application.
+     */
     @FXML
     public void onQuitButtonClick() {
         System.out.println("Quitter l'application.");
         System.exit(0);
     }
 
+    /**
+     * Affiche l'écran d'accueil.
+     */
     @FXML
     public void afficherEcranAccueil() {
         System.out.println("Affichage de l'écran d'accueil.");

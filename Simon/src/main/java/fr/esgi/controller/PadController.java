@@ -81,10 +81,4 @@ public class PadController {
         flashDuration.setOnFinished(event -> rectToFlash.setFill(originalColor));
         flashDuration.play();
     }
-
-    private void playSoundForSquare(int colorIndex) {
-        if (colorIndex >= 0 && colorIndex < soundPaths.length) {
-            SoundControleur.playSound(soundPaths[colorIndex]);
-        }
-    }
 }

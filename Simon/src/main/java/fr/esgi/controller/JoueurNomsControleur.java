@@ -14,6 +14,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Classe contrôleur pour la gestion des noms des joueurs.
+ */
 public class JoueurNomsControleur {
     @FXML
     private GridPane playerGrid;
@@ -25,11 +28,17 @@ public class JoueurNomsControleur {
     private int numberOfPlayers;
     private final List<TextField> playerNameFields = new ArrayList<>();
 
+    /**
+     * Initialise le contrôleur et configure l'action du bouton suivant.
+     */
     @FXML
     public void initialize() {
         btnNext.setOnAction(event -> handleNext());
     }
 
+    /**
+     * Crée les champs de saisie pour les noms des joueurs en fonction du nombre de joueurs.
+     */
     public void createPlayerNameFields() {
         playerGrid.getChildren().clear();
         playerNameFields.clear();
@@ -45,6 +54,9 @@ public class JoueurNomsControleur {
         }
     }
 
+    /**
+     * Gère l'action du bouton suivant en vérifiant les noms des joueurs et en passant à l'écran suivant.
+     */
     private void handleNext() {
         List<String> playerNames = new ArrayList<>();
         for (TextField textField : playerNameFields) {

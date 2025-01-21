@@ -9,11 +9,18 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * Classe contrôleur pour la gestion du jeu.
+ */
 public class JeuControleur {
 
     @FXML
     private Button backButton;
 
+    /**
+     * Gère l'action lorsque le bouton retour est cliqué.
+     * Retourne à l'écran d'accueil.
+     */
     @FXML
     public void onBackButtonClick() {
         System.out.println("Retour à l'écran d'accueil.");
@@ -26,6 +33,9 @@ public class JeuControleur {
         }
     }
 
+    /**
+     * Joue un tour du jeu.
+     */
     @FXML
     public void jouerTour() {
         System.out.println("Jouer tour.");
