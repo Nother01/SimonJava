@@ -1,6 +1,7 @@
 package fr.esgi.controller;
 
 import fr.esgi.business.Joueur;
+import fr.esgi.service.impl.ScoresServiceImpl;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -31,6 +32,8 @@ public class ScoresControleur {
     @FXML
     private Button backButton;
 
+    private final ScoresServiceImpl scoresService = new ScoresServiceImpl();
+
     private ObservableList<Joueur> joueursObservable;
 
     @FXML
@@ -46,6 +49,12 @@ public class ScoresControleur {
 
     public void setJoueurs(List<Joueur> joueurs) {
         joueursObservable.setAll(joueurs);
+    }
+
+    public void afficherScores(List<Joueur> joueurs) {
+        // Récupère les scores des joueurs via le service
+        List<Joueur> joueursAvecScores = scoresService.getScores(joueurs);
+        joueursObservable.setAll(joueursAvecScores);
     }
 
     @FXML
