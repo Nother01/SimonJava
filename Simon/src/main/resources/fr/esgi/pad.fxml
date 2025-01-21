@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<GridPane fx:controller="fr.esgi.controller.PadController" xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="20" vgap="20" prefWidth="800" prefHeight="600">
+    <!-- Top Left -->
+    <StackPane GridPane.rowIndex="0" GridPane.columnIndex="0">
+        <Rectangle fx:id="rectRed" width="150" height="150" fill="red" stroke="black" strokeWidth="2"/>
+    </StackPane>
+
+    <!-- Top Right -->
+    <StackPane GridPane.rowIndex="0" GridPane.columnIndex="1">
+        <Rectangle fx:id="rectBlue" width="150" height="150" fill="blue" stroke="black" strokeWidth="2"/>
+    </StackPane>
+
+    <!-- Bottom Left -->
+    <StackPane GridPane.rowIndex="1" GridPane.columnIndex="0">
+        <Rectangle fx:id="rectGreen" width="150" height="150" fill="green" stroke="black" strokeWidth="2"/>
+    </StackPane>
+
+    <!-- Bottom Right -->
+    <StackPane GridPane.rowIndex="1" GridPane.columnIndex="1">
+        <Rectangle fx:id="rectYellow" width="150" height="150" fill="yellow" stroke="black" strokeWidth="2"/>
+    </StackPane>
+</GridPane>

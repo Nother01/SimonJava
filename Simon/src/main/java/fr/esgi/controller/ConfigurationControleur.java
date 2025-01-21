@@ -1,6 +1,9 @@
 package fr.esgi.controller;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.FileChooser;
@@ -8,6 +11,7 @@ import javafx.stage.Stage;
 import lombok.Setter;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,6 +26,7 @@ public class ConfigurationControleur {
     @Setter
     private List<String> playerNames = new ArrayList<>();
 
+
     private final String[] soundPaths = new String[4];
 
     @FXML
@@ -30,13 +35,13 @@ public class ConfigurationControleur {
         btnSound2.setOnAction(event -> selectSound(1, lblSound2));
         btnSound3.setOnAction(event -> selectSound(2, lblSound3));
         btnSound4.setOnAction(event -> selectSound(3, lblSound4));
+
+        btnSave.setOnAction(event -> handleNext());
     }
 
     private void selectSound(int buttonIndex, Label label) {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Select Sound File");
-        String defaultDirectory = "src/main/resources/fr/esgi/audio";
-        fileChooser.setInitialDirectory(new File(defaultDirectory));
         fileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("Audio Files", "*.mp3")
         );
@@ -49,11 +54,29 @@ public class ConfigurationControleur {
             label.setText(selectedFile.getName());
         }
 
-        playerNames.forEach(System.out::println);
     }
 
     public String[] getSoundPaths() {
         return soundPaths;
     }
 
+    private void handleNext() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fr/esgi/pad.fxml"));
+            Parent root = loader.load();
+
+            PadController controller = loader.getController();
+
+            controller.setPlayerNames(playerNames);
+            controller.setSoundPaths(soundPaths);
+            controller.setNumberOfFlashes(4);
+
+            controller.startGame();
+
+            Stage stage = (Stage) btnSave.getScene().getWindow();
+            stage.setScene(new Scene(root));
+        } catch (IOException e) {
+            System.err.println("Erreur lors du chargement de la scène suivante : " + e.getMessage());
+        }
+    }
 }
