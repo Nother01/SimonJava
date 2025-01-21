@@ -1,7 +1,6 @@
 package fr.esgi.controller;
 
 import fr.esgi.business.Joueur;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -75,12 +74,6 @@ public class GameControleur {
         } catch (IOException e) {
             System.out.println("Erreur lors du chargement de pad.fxml");
         }
-    }
-
-    private boolean isGameFinished() {
-        return joueurs.stream()
-                .filter(Joueur::isActive)
-                .anyMatch(player -> player.getSequenceSize() >= SEQUENCE_TARGET);
     }
 
     private void handleSequenceVerification(boolean isCorrect, List<Integer> sequence) {
