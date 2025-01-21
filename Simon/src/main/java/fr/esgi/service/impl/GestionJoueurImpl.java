@@ -11,8 +11,7 @@ public class GestionJoueurImpl {
     private int indexJoueurActuel = 0;
 
     public void ajouterJoueur(String nom) {
-        Joueur joueur = new Joueur();
-        joueur.setName(nom);
+        Joueur joueur = new Joueur(nom, 0);
         joueurs.add(joueur);
     }
 
@@ -23,9 +22,7 @@ public class GestionJoueurImpl {
         return joueurs.get(indexJoueurActuel);
     }
 
-    public List<Joueur> getTousLesJoueurs() {
-        return new ArrayList<>(joueurs);
-    }
+    public List<Joueur> getTousLesJoueurs() { return new ArrayList<>(joueurs); }
 
     public void passerAuJoueurSuivant() {
         indexJoueurActuel = (indexJoueurActuel + 1) % joueurs.size();

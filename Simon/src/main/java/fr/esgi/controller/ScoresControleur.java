@@ -1,6 +1,7 @@
 package fr.esgi.controller;
 
 import fr.esgi.business.Joueur;
+import fr.esgi.service.impl.ScoresServiceImpl;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -13,6 +14,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
+import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.util.List;
 
@@ -29,6 +31,8 @@ public class ScoresControleur {
 
     @FXML
     private Button backButton;
+
+    private final ScoresServiceImpl scoresService = new ScoresServiceImpl();
 
     private ObservableList<Joueur> joueursObservable;
 
@@ -47,13 +51,22 @@ public class ScoresControleur {
         joueursObservable.setAll(joueurs);
     }
 
+    public void afficherScores(List<Joueur> joueurs) {
+        // Récupère les scores des joueurs via le service
+        List<Joueur> joueursAvecScores = scoresService.getScores(joueurs);
+        joueursObservable.setAll(joueursAvecScores);
+    }
+
     @FXML
-    public void afficherEcranAccueil() {
-        System.out.println("Retour à l'écran d'accueil.");
+    private void afficherEcranAccueil(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/fr/esgi/home.fxml"));
-            Stage stage = (Stage) backButton.getScene().getWindow();
-            stage.setScene(new Scene(root, 800, 600)); // Taille ajustée pour correspondre aux autres pages
+            // Chargement de la vue "home.fxml"
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fr/esgi/home.fxml"));
+            Parent root = loader.load();
+
+            // Récupération de la scène actuelle
+            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
         } catch (IOException e) {
             System.err.println("Erreur lors du chargement de l'écran d'accueil : " + e.getMessage());
         }
