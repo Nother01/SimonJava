@@ -70,7 +70,7 @@ public class AccueilControleur {
             Stage stage = (Stage) soloGameButton.getScene().getWindow();
             stage.setScene(new Scene(root));
         } catch (IOException e) {
-            System.err.println("c'est cassé" + e.getMessage());
+            System.err.println("c'est cassé acceuil" + e.getMessage());
         }
     }
 }
