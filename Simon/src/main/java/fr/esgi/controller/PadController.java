@@ -1,5 +1,6 @@
 package fr.esgi.controller;
 
+import fr.esgi.business.Joueur;
 import javafx.animation.PauseTransition;
 import javafx.fxml.FXML;
 import javafx.scene.paint.Color;
@@ -16,7 +17,7 @@ public class PadController {
     private Rectangle rectRed, rectBlue, rectGreen, rectYellow;
 
     @Setter
-    private List<String> playerNames = new ArrayList<>();
+    private List<Joueur> joueurs;
 
     @Setter
     private String[] soundPaths = new String[4];

@@ -14,6 +14,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import fr.esgi.business.Joueur;
+
 /**
  * Classe contrôleur pour la gestion des noms des joueurs.
  */
@@ -58,14 +60,14 @@ public class JoueurNomsControleur {
      * Gère l'action du bouton suivant en vérifiant les noms des joueurs et en passant à l'écran suivant.
      */
     private void handleNext() {
-        List<String> playerNames = new ArrayList<>();
+        List<Joueur> joueurs = new ArrayList<>();
         for (TextField textField : playerNameFields) {
             String name = textField.getText().trim();
             if (name.isEmpty()) {
                 textField.setStyle("-fx-border-color: red;");
                 return;
             }
-            playerNames.add(name);
+            joueurs.add(new Joueur(name, 0)); // Initialise le score à 0
         }
 
         try {
@@ -73,9 +75,8 @@ public class JoueurNomsControleur {
             Stage stage = (Stage) btnNext.getScene().getWindow();
             stage.setScene(new Scene(loader.load()));
 
-            playerNames.forEach(System.out::println);
-            ConfigurationControleur configController = loader.getController(); // pass player names to the next controller
-            configController.setPlayerNames(playerNames);
+            ConfigurationControleur configController = loader.getController();
+            configController.setJoueurs(joueurs); // Passe la liste des joueurs
         } catch (IOException e) {
             System.err.println("Erreur : " + e.getMessage());
         }

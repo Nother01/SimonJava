@@ -5,19 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1ba2ba5d-34d9-4769-a388-4f01769a5545" name="Changes" comment="ADD initialisation du projet">
-      <change afterPath="$PROJECT_DIR$/src/main/java/fr/esgi/service/impl/ScoresServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/fr/esgi/business/JoueurTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/fr/esgi/service/GestionJoueurImplTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/fr/esgi/service/GestionPartieImplTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/esgi/controller/AccueilControleur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/esgi/controller/AccueilControleur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/esgi/business/Joueur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/esgi/business/Joueur.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/esgi/controller/ConfigurationControleur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/esgi/controller/ConfigurationControleur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/esgi/controller/CreditsControleur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/esgi/controller/CreditsControleur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/esgi/controller/JeuControleur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/esgi/controller/JeuControleur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/esgi/controller/JoueurControleur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/esgi/controller/JoueurControleur.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/esgi/controller/JoueurNomsControleur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/esgi/controller/JoueurNomsControleur.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/esgi/controller/PadController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/esgi/controller/PadController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/esgi/service/impl/GestionJoueurImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/esgi/service/impl/GestionJoueurImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +49,7 @@
     "Maven.simon [install].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "Merging main",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/romai/Documents/ESGI/Java/SimonJava/Simon",
     "node.js.detected.package.eslint": "true",
@@ -91,7 +84,7 @@
       <workItem from="1729685839595" duration="6562000" />
       <workItem from="1733844047811" duration="381000" />
       <workItem from="1737450612495" duration="4454000" />
-      <workItem from="1737456032248" duration="3078000" />
+      <workItem from="1737456032248" duration="6411000" />
     </task>
     <task id="LOCAL-00001" summary="ADD initialisation du projet">
       <option name="closed" value="true" />

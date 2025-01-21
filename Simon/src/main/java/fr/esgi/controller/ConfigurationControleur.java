@@ -1,5 +1,6 @@
 package fr.esgi.controller;
 
+import fr.esgi.business.Joueur;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -8,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import lombok.Getter;
 import lombok.Setter;
 
 import java.io.File;
@@ -27,8 +29,15 @@ public class ConfigurationControleur {
     private Label lblSound1, lblSound2, lblSound3, lblSound4;
 
     @Setter
-    private List<String> playerNames = new ArrayList<>();
+    private List<Joueur> joueurs;
 
+    /**
+     * -- GETTER --
+     *  Retourne les chemins des fichiers audio sélectionnés.
+     *
+     * @return Un tableau de chaînes contenant les chemins des fichiers audio.
+     */
+    @Getter
     private final String[] soundPaths = new String[4];
 
     /**
@@ -69,15 +78,6 @@ public class ConfigurationControleur {
     }
 
     /**
-     * Retourne les chemins des fichiers audio sélectionnés.
-     *
-     * @return Un tableau de chaînes contenant les chemins des fichiers audio.
-     */
-    public String[] getSoundPaths() {
-        return soundPaths;
-    }
-
-    /**
      * Gère l'action de sauvegarde et charge la scène suivante.
      */
     private void handleNext() {
@@ -87,7 +87,7 @@ public class ConfigurationControleur {
 
             PadController controller = loader.getController();
 
-            controller.setPlayerNames(playerNames);
+            controller.setJoueurs(joueurs);
             controller.setSoundPaths(soundPaths);
             controller.setNumberOfFlashes(4);
 
