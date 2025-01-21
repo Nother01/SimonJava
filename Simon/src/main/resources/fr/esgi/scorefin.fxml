@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="fr.esgi.controller.ScoreFinControleur" spacing="20" alignment="center" prefWidth="800" prefHeight="600">
+    <Label text="Classement" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+    <Label fx:id="winnerLabel" text="Gagnant : ..." style="-fx-font-size: 16px;" />
+    <ListView fx:id="scoreListView" prefHeight="300" prefWidth="400" />
+</VBox>

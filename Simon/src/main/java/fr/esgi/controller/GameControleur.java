@@ -14,7 +14,6 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 public class GameControleur {
     private List<Joueur> joueurs;
@@ -45,7 +44,7 @@ public class GameControleur {
     }
 
     private void playNextTurn() {
-        if (getActivePlayersCount() == 0 || isGameFinished()) {
+        if (shouldEndGame()) {
             endGame();
             return;
         }
@@ -90,9 +89,15 @@ public class GameControleur {
         if (!isCorrect) {
             currentPlayer.setActive(false);
             System.out.println(currentPlayer.getName() + " a été éliminé!");
+
+            if (shouldEndGame()) {
+                endGame();
+                return;
+            }
         } else if (sequence.size() >= SEQUENCE_TARGET) {
             System.out.println(currentPlayer.getName() + " a gagné avec une séquence de taille " + SEQUENCE_TARGET);
-            currentPlayer.setActive(false);
+            endGame();
+            return;
         }
 
         moveToNextPlayer();
@@ -103,6 +108,11 @@ public class GameControleur {
         }
 
         playNextTurn();
+    }
+
+    private boolean shouldEndGame() {
+        return getActivePlayersCount() == 0 ||
+                joueurs.stream().anyMatch(player -> player.getSequenceSize() >= SEQUENCE_TARGET);
     }
 
     private void moveToNextPlayer() {
@@ -117,6 +127,23 @@ public class GameControleur {
         return (int) joueurs.stream().filter(Joueur::isActive).count();
     }
 
+    private void showScoreFinScene() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fr/esgi/scorefin.fxml"));
+            Parent root = loader.load();
+
+            ScoreFinControleur controller = loader.getController();
+            controller.setStage(stage);
+            controller.setJoueurs(joueurs);
+
+            stage.setScene(new Scene(root));
+            stage.show();
+
+        } catch (IOException e) {
+            System.out.println("Erreur lors du chargement de scorefin.fxml");
+        }
+    }
+
     private void endGame() {
         Optional<Joueur> winnerByTarget = joueurs.stream()
                 .filter(j -> j.getSequenceSize() >= SEQUENCE_TARGET)
@@ -127,24 +154,25 @@ public class GameControleur {
             System.out.println("Le gagnant est : " + winner.getName() +
                     " avec un score de " + winner.getScore() +
                     " et une séquence de " + winner.getSequenceSize());
-            return;
-        }
-
-        Joueur winner = joueurs.stream()
-                .filter(Joueur::isActive)
-                .findFirst()
-                .orElse(
-                        joueurs.stream()
-                                .max(Comparator.comparingInt(Joueur::getScore))
-                                .orElse(null)
-                );
-
-        if (winner != null) {
-            System.out.println("Le gagnant est : " + winner.getName() +
-                    " avec un score de " + winner.getScore() +
-                    " et une séquence de " + winner.getSequenceSize());
         } else {
-            System.out.println("Aucun gagnant");
+            Joueur winner = joueurs.stream()
+                    .filter(Joueur::isActive)
+                    .findFirst()
+                    .orElse(
+                            joueurs.stream()
+                                    .max(Comparator.comparingInt(Joueur::getScore))
+                                    .orElse(null)
+                    );
+
+            if (winner != null) {
+                System.out.println("Le gagnant est : " + winner.getName() +
+                        " avec un score de " + winner.getScore() +
+                        " et une séquence de " + winner.getSequenceSize());
+            } else {
+                System.out.println("Aucun gagnant");
+            }
         }
+
+        showScoreFinScene();
     }
 }

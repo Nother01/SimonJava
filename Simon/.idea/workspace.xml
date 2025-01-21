@@ -5,6 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1ba2ba5d-34d9-4769-a388-4f01769a5545" name="Changes" comment="ADD initialisation du projet">
+      <change afterPath="$PROJECT_DIR$/src/main/java/fr/esgi/controller/ScoreFinControleur.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/fr/esgi/scorefin.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/esgi/controller/GameControleur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/esgi/controller/GameControleur.java" afterDir="false" />
     </list>
