@@ -1,5 +1,6 @@
 package fr.esgi.controller;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -58,5 +59,18 @@ public class AccueilControleur {
     @FXML
     public void afficherEcranAccueil() {
         System.out.println("Affichage de l'écran d'accueil.");
+    }
+
+    public void afficherCredits(ActionEvent actionEvent) {
+        System.out.println("Démarrage du jeu depuis l'écran d'accueil.");
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fr/esgi/credits.fxml"));
+            Parent root = loader.load();
+
+            Stage stage = (Stage) soloGameButton.getScene().getWindow();
+            stage.setScene(new Scene(root));
+        } catch (IOException e) {
+            System.err.println("c'est cassé" + e.getMessage());
+        }
     }
 }

@@ -7,4 +7,5 @@
     <Button fx:id="soloGameButton" text="Jouer en mode Solo" onAction="#onsoloGameButtonClick" layoutX="50" layoutY="50" />
     <Button fx:id="quitButton" text="Quit" onAction="#onQuitButtonClick" layoutX="50" layoutY="100" />
     <Button text="Accueil" onAction="#afficherEcranAccueil" layoutX="50" layoutY="150" />
+    <Button text="Crédits" onAction="#afficherCredits" layoutX="50" layoutY="200" />
 </AnchorPane>
