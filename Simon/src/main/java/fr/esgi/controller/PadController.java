@@ -10,6 +10,7 @@ import lombok.Setter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
 public class PadController {
     @FXML
     private Rectangle rectRed, rectBlue, rectGreen, rectYellow;
@@ -74,8 +75,16 @@ public class PadController {
         Color originalColor = (Color) rectToFlash.getFill();
         rectToFlash.setFill(Color.WHITE);
 
-        PauseTransition flashDuration = new PauseTransition(Duration.seconds(0.5));
+        new Thread(() -> SoundControleur.playSound(soundPaths[colorIndex])).start();
+
+        PauseTransition flashDuration = new PauseTransition(Duration.seconds(1));
         flashDuration.setOnFinished(event -> rectToFlash.setFill(originalColor));
         flashDuration.play();
+    }
+
+    private void playSoundForSquare(int colorIndex) {
+        if (colorIndex >= 0 && colorIndex < soundPaths.length) {
+            SoundControleur.playSound(soundPaths[colorIndex]);
+        }
     }
 }
