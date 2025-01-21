@@ -10,6 +10,10 @@ import lombok.Setter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
+/**
+ * Classe contrôleur pour la gestion du pad de jeu.
+ */
 public class PadController {
     @FXML
     private Rectangle rectRed, rectBlue, rectGreen, rectYellow;
@@ -30,19 +34,28 @@ public class PadController {
     public void initialize() {
     }
 
+    /**
+     * Démarre le jeu en générant et en jouant la séquence.
+     */
     public void startGame() {
         generateSequence();
         playSequence();
     }
 
+    /**
+     * Génère une séquence aléatoire de couleurs.
+     */
     private void generateSequence() {
         sequence.clear();
         for (int i = 0; i < numberOfFlashes; i++) {
-            sequence.add(random.nextInt(4)); // 0: Red, 1: Blue, 2: Green, 3: Yellow
+            sequence.add(random.nextInt(4)); // 0: Rouge, 1: Bleu, 2: Vert, 3: Jaune
         }
         System.out.println("Sequence generated: " + sequence);
     }
 
+    /**
+     * Joue la séquence de couleurs générée.
+     */
     private void playSequence() {
         for (int i = 0; i < sequence.size(); i++) {
             int index = i;
@@ -52,6 +65,11 @@ public class PadController {
         }
     }
 
+    /**
+     * Fait clignoter le rectangle correspondant à l'index de couleur donné.
+     *
+     * @param colorIndex L'index de la couleur à faire clignoter.
+     */
     private void flashRectangle(int colorIndex) {
         Rectangle rectToFlash;
         switch (colorIndex) {

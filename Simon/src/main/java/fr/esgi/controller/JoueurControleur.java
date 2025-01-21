@@ -8,6 +8,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
+/**
+ * Classe contrôleur pour la gestion des joueurs.
+ */
 public class JoueurControleur {
 
     private final GestionJoueurImpl gestionJoueur = new GestionJoueurImpl();
@@ -20,11 +23,17 @@ public class JoueurControleur {
 
     private ObservableList<String> joueursObservableList = FXCollections.observableArrayList();
 
+    /**
+     * Initialise la liste des joueurs.
+     */
     @FXML
     public void initialize() {
         listeJoueurs.setItems(joueursObservableList);
     }
 
+    /**
+     * Ajoute un nouveau joueur à la liste.
+     */
     @FXML
     public void ajouterJoueur() {
         String nom = inputNomJoueur.getText();
@@ -37,6 +46,9 @@ public class JoueurControleur {
         }
     }
 
+    /**
+     * Affiche le joueur actuel.
+     */
     @FXML
     public void afficherJoueurActuel() {
         var joueurActuel = gestionJoueur.obtenirJoueurActuel(); // Appel au service
