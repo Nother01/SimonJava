@@ -18,6 +18,9 @@ public class CreditsControleur {
     @FXML
     private Button creditButton;
 
+    @FXML
+    private Button backButton;
+
     /**
      * Affiche les crédits du jeu.
      */
@@ -25,25 +28,23 @@ public class CreditsControleur {
         System.out.println("Développé par l'équipe Simon.");
     }
 
-    public void initialize() {
-        creditButton.setOnAction(event -> afficherEcranAccueil());
-    }
-
     /**
      * Gère l'action lorsque le bouton de jeu solo est cliqué.
      * Charge l'écran de choix du nom des joueurs pour le mode solo.
      */
 
-    public void afficherEcranAccueil() {
-        System.out.println("Démarrage du jeu depuis l'écran d'accueil.");
+    @FXML
+    private void afficherEcranAccueil(ActionEvent event) {
         try {
+            // Chargement de la vue "home.fxml"
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fr/esgi/home.fxml"));
             Parent root = loader.load();
 
-            Stage stage = (Stage) creditButton.getScene().getWindow();
+            // Récupération de la scène actuelle
+            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
         } catch (IOException e) {
-            System.err.println("c'est cassé crédit" + e.getMessage());
+            System.err.println("Erreur lors du chargement de l'écran d'accueil : " + e.getMessage());
         }
     }
 }

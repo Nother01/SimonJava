@@ -61,16 +61,16 @@ public class AccueilControleur {
         System.out.println("Affichage de l'écran d'accueil.");
     }
 
-    public void afficherCredits(ActionEvent actionEvent) {
-        System.out.println("Démarrage du jeu depuis l'écran d'accueil.");
+    @FXML
+    public void afficherCredits(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fr/esgi/credits.fxml"));
             Parent root = loader.load();
 
-            Stage stage = (Stage) soloGameButton.getScene().getWindow();
+            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
         } catch (IOException e) {
-            System.err.println("c'est cassé acceuil" + e.getMessage());
+            System.err.println("Erreur lors du chargement de l'écran des crédits : " + e.getMessage());
         }
     }
 }
