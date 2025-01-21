@@ -5,7 +5,7 @@ import java.util.List;
 public class ScoresServiceImpl {
 
     /**
-     * Compare deux listes d'entiers.
+     * Compare deux listes d'entiers.a
      *
      * @param liste1 La première liste d'entiers
      * @param liste2 La deuxième liste d'entiers
