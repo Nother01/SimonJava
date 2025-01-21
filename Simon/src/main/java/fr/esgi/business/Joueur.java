@@ -8,7 +8,7 @@ import lombok.Setter;
 public class Joueur {
 
     private String name;
-    private int score;
+    private Integer score;
 
     public Joueur(String name, int score) {
         this.name = name;

@@ -3,17 +3,23 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="fr.esgi.controller.CreditsControleur">
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="fr.esgi.controller.CreditsControleur" prefWidth="800" prefHeight="600" style="-fx-background-color: #f0f0f0;">
     <top>
-        <Label text="Crédits" BorderPane.alignment="CENTER" style="-fx-font-size: 18px;" />
+        <Label text="Crédits" BorderPane.alignment="CENTER" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
     </top>
     <center>
-        <VBox alignment="CENTER" spacing="10">
-            <Label text="Développé par :" style="-fx-font-size: 14px;" />
-            <ListView fx:id="listeCredits" prefHeight="150" />
+        <VBox alignment="CENTER" spacing="20">
+            <Label text="Développé par :" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #34495e;" />
+            <Label text="Hugo Sapey-Triomphe" style="-fx-font-size: 14px; -fx-text-fill: #2c3e50; -fx-padding: 10;" />
+            <Label text="Romain Lavayssiere" style="-fx-font-size: 14px; -fx-text-fill: #2c3e50; -fx-padding: 10;" />
+            <Label text="Paul Ancey" style="-fx-font-size: 14px; -fx-text-fill: #2c3e50; -fx-padding: 10;" />
+            <Label text="Avec la participation et le soutien généreux des Daft Punk" style="-fx-font-size: 14px; -fx-font-style: italic; -fx-text-fill: #7f8c8d;" />
+            <ListView fx:id="listeCredits" prefHeight="150" prefWidth="400" style="-fx-border-color: #bdc3c7; -fx-background-color: #ecf0f1;" />
         </VBox>
     </center>
     <bottom>
-        <Button text="Retour à l'Accueil" onAction="#afficherCredits" BorderPane.alignment="CENTER" />
+        <HBox alignment="CENTER" spacing="10" BorderPane.alignment="CENTER">
+            <Button text="Retour à l'Accueil" onAction="#afficherEcranAccueil" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 10 20; -fx-border-radius: 5; -fx-background-radius: 5;" />
+        </HBox>
     </bottom>
 </BorderPane>
