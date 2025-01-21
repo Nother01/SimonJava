@@ -4,31 +4,32 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 
-<GridPane fx:controller="fr.esgi.controller.PadControleur" xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="20" vgap="20" prefWidth="800" prefHeight="600">
-    <!-- Top Left -->
-    <StackPane GridPane.rowIndex="0" GridPane.columnIndex="0">
-        <Rectangle fx:id="rectRed" width="150" height="150" fill="red" stroke="black" strokeWidth="2"/>
-    </StackPane>
+<VBox fx:controller="fr.esgi.controller.PadControleur" xmlns:fx="http://javafx.com/fxml" alignment="center" spacing="10" prefWidth="800" prefHeight="600">
+    <VBox alignment="center" spacing="5">
+        <Label fx:id="playerName" text="Nom du joueur" style="-fx-font-size: 28px; -fx-font-weight: bold;"/>
+        <Label fx:id="playerScore" text="Score : 0" style="-fx-font-size: 20px;"/>
+    </VBox>
 
-    <!-- Top Right -->
-    <StackPane GridPane.rowIndex="0" GridPane.columnIndex="1">
-        <Rectangle fx:id="rectBlue" width="150" height="150" fill="blue" stroke="black" strokeWidth="2"/>
-    </StackPane>
+    <GridPane alignment="center" hgap="20" vgap="20">
+        <StackPane GridPane.rowIndex="0" GridPane.columnIndex="0">
+            <Rectangle fx:id="rectRed" width="150" height="150" fill="red" stroke="black" strokeWidth="2"/>
+        </StackPane>
 
-    <!-- Bottom Left -->
-    <StackPane GridPane.rowIndex="1" GridPane.columnIndex="0">
-        <Rectangle fx:id="rectGreen" width="150" height="150" fill="green" stroke="black" strokeWidth="2"/>
-    </StackPane>
+        <StackPane GridPane.rowIndex="0" GridPane.columnIndex="1">
+            <Rectangle fx:id="rectBlue" width="150" height="150" fill="blue" stroke="black" strokeWidth="2"/>
+        </StackPane>
 
-    <!-- Bottom Right -->
-    <StackPane GridPane.rowIndex="1" GridPane.columnIndex="1">
-        <Rectangle fx:id="rectYellow" width="150" height="150" fill="yellow" stroke="black" strokeWidth="2"/>
-    </StackPane>
+        <StackPane GridPane.rowIndex="1" GridPane.columnIndex="0">
+            <Rectangle fx:id="rectGreen" width="150" height="150" fill="green" stroke="black" strokeWidth="2"/>
+        </StackPane>
 
-    <!-- Game Message -->
-    <Label fx:id="gameMessage" text="..." GridPane.rowIndex="2" GridPane.columnIndex="0" GridPane.columnSpan="2" alignment="center" style="-fx-font-size: 24px; -fx-font-weight: bold;" />
+        <StackPane GridPane.rowIndex="1" GridPane.columnIndex="1">
+            <Rectangle fx:id="rectYellow" width="150" height="150" fill="yellow" stroke="black" strokeWidth="2"/>
+        </StackPane>
 
-    <!-- Verify Button -->
-    <Button text="Verifier" fx:id="btnVerify" GridPane.rowIndex="3" GridPane.columnIndex="0" GridPane.columnSpan="2" alignment="center" />
-</GridPane>
+        <Label fx:id="gameMessage" text="..." GridPane.rowIndex="2" GridPane.columnIndex="0" GridPane.columnSpan="2" alignment="center" style="-fx-font-size: 24px; -fx-font-weight: bold;" />
 
+        <!-- Verify Button -->
+        <Button text="Verifier" fx:id="btnVerify" GridPane.rowIndex="3" GridPane.columnIndex="0" GridPane.columnSpan="2" alignment="center" />
+    </GridPane>
+</VBox>

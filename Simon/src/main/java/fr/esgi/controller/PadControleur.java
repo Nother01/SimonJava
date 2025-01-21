@@ -29,6 +29,7 @@ public class PadControleur {
     private int numberOfFlashes;
 
     private List<Integer> sequence = new ArrayList<>();
+
     private final Random random = new Random();
 
     @FXML
@@ -39,6 +40,24 @@ public class PadControleur {
 
     private List<Integer> userSequence = new ArrayList<>();
     private boolean isUserTurn = false;
+
+    @FXML
+    private Label playerName;
+
+    @FXML
+    private Label playerScore;
+
+    public void setJoueur(Joueur joueur) {
+        this.joueur = joueur;
+        updatePlayerInfo();
+    }
+
+    private void updatePlayerInfo() {
+        if (joueur != null) {
+            playerName.setText(joueur.getName());
+            playerScore.setText("Score : " + joueur.getScore());
+        }
+    }
 
     @FXML
     public void initialize() {
@@ -65,11 +84,11 @@ public class PadControleur {
         userSequence.clear();
         isUserTurn = false;
         btnVerify.setDisable(true);
-        gameMessage.setText("Attention " + joueur.getName() + "...");
+        gameMessage.setText("Attention...");
 
         generateSequence();
         playSequence(() -> {
-            gameMessage.setText("À toi de jouer " + joueur.getName() + "...");
+            gameMessage.setText("À toi de jouer...");
             isUserTurn = true;
             btnVerify.setDisable(false);
             onSequenceComplete.run();
@@ -154,6 +173,7 @@ public class PadControleur {
             joueur.adjustScore(-2);
         }
 
+        updatePlayerInfo();
         btnVerify.setDisable(true);
         isUserTurn = false;
 
